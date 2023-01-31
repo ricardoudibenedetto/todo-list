@@ -1,32 +1,35 @@
-import { CompleteList } from "../components/completeList";
-import { FormTodoList } from "../components/FormTodoList";
-import { TodoList } from "../components/TodoList";
-import { useCompleteList } from "../hooks/useCompleteList";
-import { useTodoList } from "../hooks/useTodoList";
+import { FormTodoList, ConteinerList } from "../components/";
+import { useTodo } from "../hooks/useTodo";
+import { Todo } from "../models/todo.api.models";
+
 
 export const HomePage = () => {
 
-    const { todoList, addItemTodoList, removeItemTodoList } = useTodoList();
-    const { completeList, addToCompleteList, removeItemComplete } = useCompleteList();
-
-    const tareaComplete = (item: string) => {
-        removeItemTodoList(item);
-        addToCompleteList(item);
-    }
-
-    const moveToTodoList = (item: string) => {
-        removeItemComplete(item)
-        addItemTodoList(item)
+    const { todos, todoAdd, todoComplete, todoIncomplete } = useTodo();
+    const filtrarTodos = (todos: Todo[], todoDone: boolean): Todo[] => {
+        return todos.filter(({ isComplete }: Todo) => isComplete == todoDone)
     }
 
     return (
         <>
             <h1>Todo list</h1>
             <hr />
-            <FormTodoList addItemTodoList={addItemTodoList}/>
+            <FormTodoList addItemTodoList={todoAdd} />
             <main className="d-flex">
-                <TodoList todoList={todoList} tareaComplete={tareaComplete} />
-                <CompleteList completeList={completeList} moveToTodoList={moveToTodoList} />
+                <ConteinerList titleList="Pendings">
+                    <ol>
+                        {filtrarTodos(todos, false).map(({ description }: Todo) => (
+                            <li className="d-flex justify-content-betwen"><p>{description}</p><button onClick={() => todoComplete(description)}>Completar </button></li>
+                        ))}
+                    </ol>
+                </ConteinerList>
+                <ConteinerList titleList="Completos">
+                    <ol>
+                        {filtrarTodos(todos, true).map(({ description }: Todo) => (
+                            <li className="d-flex justify-content-betwen"><p className="texto-tachado">{description}</p> <button onClick={() => todoIncomplete(description)}>Descomplete </button></li>
+                        ))}
+                    </ol>
+                </ConteinerList>
             </main>
         </>
     )
