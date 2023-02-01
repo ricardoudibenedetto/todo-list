@@ -1,5 +1,5 @@
 import { useRef } from "react";
-
+import "./style.css"
 interface Props {
     addItemTodoList: Function
 }
@@ -12,9 +12,9 @@ export const FormTodoList = ({addItemTodoList}: Props) => {
         inputForm.current!.value = '';
     }
     return (
-        <form >
-            <input type="text" name="todoItem" ref={inputForm} />
-            <input type="submit" value="Add Item" onClick={addItem} />
+        <form className="d-flex gap-10" >
+            <input type="text" name="todoItem" className="search" ref={inputForm} />
+            <input type="submit" className="addElement" value="+" onClick={addItem} />
         </form>
     )
 }

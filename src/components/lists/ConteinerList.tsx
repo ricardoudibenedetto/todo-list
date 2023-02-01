@@ -1,6 +1,6 @@
 
 import { ReactElement } from "react"
-import { TodoItem } from "./TodoItem"
+import { TodoItem } from "../items/TodoItem"
 
 interface Props {
     titleList: string,
@@ -11,7 +11,7 @@ export const ConteinerList = ({ titleList, children }: Props) => {
     return (
         <>
             <section className="todoList">
-                <h2>{titleList}</h2>
+                <h2 >{titleList}</h2>
                 {children}
             </section>
         </>

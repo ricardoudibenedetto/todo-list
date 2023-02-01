@@ -18,9 +18,14 @@ export const useTodo = () => {
         setTodos([...todos.map((todo: Todo) => todo.description == description ? { ...todo, isComplete: false } : todo)])
     }
 
+    const todoToggle = (description: string) => {
+        setTodos([...todos.map((todo: Todo) => todo.description == description ? { ...todo, isComplete: !todo.isComplete } : todo)])
+    }
+
     return {
         todos,
         todoAdd,
+        todoToggle,
         todoComplete,
         todoIncomplete
     }

@@ -1,0 +1,23 @@
+.addElement{
+    background: none;
+    font-size: 20px;
+    border: none;
+    color: white;
+    padding: 4px;
+    padding-bottom: -11px;
+    cursor: pointer;
+}
+
+.search{
+    height: 30px;
+    border-radius: 10px;
+    width: 240px;
+    padding: 0px 10px;
+    background: #0000001f;
+    border: none;
+    color: white;
+}
+
+.search:focus-visible {
+    border: 1px solid;
+}

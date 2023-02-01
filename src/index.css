@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -13,22 +13,35 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+} */
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  /* background-color: slategray; */
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  color: white;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 .d-flex{
   display: flex;
 }
 
+.gap-10{
+  gap: 10px;
+}
+
+.gap-20{
+  gap: 20px;
+}
+
 .justify-content-betwen{
   justify-content: space-between;
+}
+
+.justify-content-center{
+  justify-content: center;
 }
 
 .texto-tachado{
@@ -39,20 +52,19 @@ a:hover {
   min-width: 300px;
 }
 body {
-  padding: 20px;
   margin: 0;
-  display: flex;
-/*   place-items: center; */
+  padding: 20px;
+
   min-width: 320px;
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.5em;
   line-height: 1.1;
 }
 
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -62,8 +74,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
+} */
+/* button:hover {
   border-color: #646cff;
 }
 button:focus,
@@ -82,4 +94,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
